@@ -1,0 +1,19 @@
+.Sidebar {
+  font-family: var(--font-geist-sans);
+  
+  &_organization {
+    &_dropdown {
+      width: 100%;
+    }
+
+    &_signin {
+      width: 100%;
+    }
+  }
+
+  &_logout {
+    &_button {
+      width: 100%;
+    }
+  }
+}
