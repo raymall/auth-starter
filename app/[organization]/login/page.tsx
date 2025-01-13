@@ -1,8 +1,6 @@
 import { RegisterLink, LoginLink } from '@kinde-oss/kinde-auth-nextjs/components'
 import {
   Card,
-  CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
