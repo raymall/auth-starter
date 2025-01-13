@@ -1,0 +1,36 @@
+.page {
+  font-family: var(--font-geist-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+}
+
+.main {
+  display: grid;
+  place-content: center;
+  place-items: center;
+  min-height: 100vh;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+}
+
+.Title {
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.CardFooter {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+
+  &_link {
+    width: 100%;
+  }
+
+  &_button {
+    width: 100%;
+  }
+}
