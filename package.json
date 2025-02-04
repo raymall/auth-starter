@@ -11,7 +11,7 @@
     "db:push": "npx prisma db push",
     "db:schema": "npx prisma generate",
     "db:deploy": "npx prisma migrate deploy",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate && prisma db push"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
