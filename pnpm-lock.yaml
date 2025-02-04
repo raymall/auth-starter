@@ -8,12 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@hookform/resolvers':
+        specifier: ^3.10.0
+        version: 3.10.0(react-hook-form@7.54.2(react@19.0.0))
       '@kinde-oss/kinde-auth-nextjs':
         specifier: ^2.4.6
         version: 2.4.6(@babel/core@7.26.0)(next@15.1.3(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@kinde-oss/kinde-auth-react':
-        specifier: ^4.0.4
-        version: 4.0.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@kinde/management-api-js':
         specifier: ^0.11.0
         version: 0.11.0
@@ -26,6 +26,9 @@ importers:
       '@radix-ui/react-dropdown-menu':
         specifier: ^2.1.4
         version: 2.1.4(@types/react-dom@19.0.2(@types/react@19.0.2))(@types/react@19.0.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@radix-ui/react-label':
+        specifier: ^2.1.1
+        version: 2.1.1(@types/react-dom@19.0.2(@types/react@19.0.2))(@types/react@19.0.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@radix-ui/react-select':
         specifier: ^2.1.4
         version: 2.1.4(@types/react-dom@19.0.2(@types/react@19.0.2))(@types/react@19.0.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -59,6 +62,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
+      react-hook-form:
+        specifier: ^7.54.2
+        version: 7.54.2(react@19.0.0)
       slugify:
         specifier: ^1.6.6
         version: 1.6.6
@@ -68,10 +74,16 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
+      uuid:
+        specifier: ^11.0.5
+        version: 11.0.5
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
         version: 3.2.0
+      '@prisma/client':
+        specifier: ^6.2.1
+        version: 6.2.1(prisma@6.2.1)
       '@types/node':
         specifier: ^20
         version: 20.17.11
@@ -93,6 +105,9 @@ importers:
       postcss:
         specifier: ^8.4.49
         version: 8.4.49
+      prisma:
+        specifier: ^6.2.1
+        version: 6.2.1
       sass:
         specifier: ^1.83.0
         version: 1.83.0
@@ -102,6 +117,9 @@ importers:
       typescript:
         specifier: ^5
         version: 5.7.2
+      zod:
+        specifier: ^3.24.1
+        version: 3.24.1
 
 packages:
 
@@ -650,6 +668,11 @@ packages:
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
 
+  '@hookform/resolvers@3.10.0':
+    resolution: {integrity: sha512-79Dv+3mDF7i+2ajj7SkypSKHhl1cbln1OGavqrsF7p6mbUv11xpqpacPsGDCTRvCSjEEIez2ef1NveSVL3b0Ag==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
     engines: {node: '>=18.18.0'}
@@ -803,15 +826,6 @@ packages:
       next: ^12.2.5 || ^13 || ^14 || ^15
       react: ^18 || ^19
       react-dom: ^18 || ^19
-
-  '@kinde-oss/kinde-auth-pkce-js@4.2.2':
-    resolution: {integrity: sha512-L8y0qPjpwfBGtt+sBLxy5Lb8GjY5LvEX8t+tQQ7Mgdk2l3hYrPyIksACLtBiybIpGigIY1RXEnwgLrLUvua4Lw==}
-
-  '@kinde-oss/kinde-auth-react@4.0.4':
-    resolution: {integrity: sha512-nmS2evo9cYeIMgOBrgfQkysBgn/UGKUh2Lbl99CjPDg4kzpJ6jvVxTigNqBIiffo2HfDSzvgqX1vJXCggS2Vkg==}
-    peerDependencies:
-      react: ^17.0.2 || ^18
-      react-dom: ^17.0.2 || ^18
 
   '@kinde-oss/kinde-typescript-sdk@2.9.1':
     resolution: {integrity: sha512-3BBFQ3/WgAgoWigfpK9ItUkpyleuHN14in+V44NLWi+zHwE1B8II/HR5CHhw+s6qR1wyJwQh4ddz2tUJwEXysg==}
@@ -978,6 +992,30 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
+  '@prisma/client@6.2.1':
+    resolution: {integrity: sha512-msKY2iRLISN8t5X0Tj7hU0UWet1u0KuxSPHWuf3IRkB4J95mCvGpyQBfQ6ufcmvKNOMQSq90O2iUmJEN2e5fiA==}
+    engines: {node: '>=18.18'}
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+
+  '@prisma/debug@6.2.1':
+    resolution: {integrity: sha512-0KItvt39CmQxWkEw6oW+RQMD6RZ43SJWgEUnzxN8VC9ixMysa7MzZCZf22LCK5DSooiLNf8vM3LHZm/I/Ni7bQ==}
+
+  '@prisma/engines-version@6.2.0-14.4123509d24aa4dede1e864b46351bf2790323b69':
+    resolution: {integrity: sha512-7tw1qs/9GWSX6qbZs4He09TOTg1ff3gYsB3ubaVNN0Pp1zLm9NC5C5MZShtkz7TyQjx7blhpknB7HwEhlG+PrQ==}
+
+  '@prisma/engines@6.2.1':
+    resolution: {integrity: sha512-lTBNLJBCxVT9iP5I7Mn6GlwqAxTpS5qMERrhebkUhtXpGVkBNd/jHnNJBZQW4kGDCKaQg/r2vlJYkzOHnAb7ZQ==}
+
+  '@prisma/fetch-engine@6.2.1':
+    resolution: {integrity: sha512-OO7O9d6Mrx2F9i+Gu1LW+DGXXyUFkP7OE5aj9iBfA/2jjDXEJjqa9X0ZmM9NZNo8Uo7ql6zKm6yjDcbAcRrw1A==}
+
+  '@prisma/get-platform@6.2.1':
+    resolution: {integrity: sha512-zp53yvroPl5m5/gXYLz7tGCNG33bhG+JYCm74ohxOq1pPnrL47VQYFfF3RbTZ7TzGWCrR3EtoiYMywUBw7UK6Q==}
+
   '@radix-ui/number@1.1.0':
     resolution: {integrity: sha512-V3gRzhVNU1ldS5XhAPTom1fOIo4ccrjjJgmE+LI2h/WaFpHmx0MQApT+KZHnx8abG6Avtfcz4WoEciMnpFT3HQ==}
 
@@ -1118,6 +1156,19 @@ packages:
       react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
     peerDependenciesMeta:
       '@types/react':
+        optional: true
+
+  '@radix-ui/react-label@2.1.1':
+    resolution: {integrity: sha512-UUw5E4e/2+4kFMH7+YxORXGWggtY6sM8WIwh5RZchhLuUg2H1hc98Py+pr8HMz6rdaYrK2t296ZEjYLOCO5uUw==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
         optional: true
 
   '@radix-ui/react-menu@2.1.4':
@@ -2235,10 +2286,6 @@ packages:
     resolution: {integrity: sha512-ZZow9HBI5O6EPgSJLUb8n2NKgmVWTwCvHGwFuJlMjvLFqlGG6pjirPhtdsseaLZjSibD8eegzmYpUZwoIlj2cQ==}
     engines: {node: '>=4.0'}
 
-  jwt-decode@4.0.0:
-    resolution: {integrity: sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA==}
-    engines: {node: '>=18'}
-
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
@@ -2502,6 +2549,11 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
+  prisma@6.2.1:
+    resolution: {integrity: sha512-hhyM0H13pQleQ+br4CkzGizS5I0oInoeTw3JfLw1BRZduBSQxPILlJLwi+46wZzj9Je7ndyQEMGw/n5cN2fknA==}
+    engines: {node: '>=18.18'}
+    hasBin: true
+
   prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
 
@@ -2516,6 +2568,12 @@ packages:
     resolution: {integrity: sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==}
     peerDependencies:
       react: ^19.0.0
+
+  react-hook-form@7.54.2:
+    resolution: {integrity: sha512-eHpAUgUjWbZocoQYUHposymRb4ZP6d0uwUnooL2uOybA9/3tPUvoAKqEWK1WaSiTxxOfTpffNZP7QwlnM3/gEg==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18 || ^19
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -2910,6 +2968,10 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  uuid@11.0.5:
+    resolution: {integrity: sha512-508e6IcKLrhxKdBbcA2b4KQZlLVp2+J5UwQ6F7Drckkc5N9ZJwFa4TgWtsww9UG8fGHbm6gbV19TdM5pQ4GaIA==}
+    hasBin: true
+
   which-boxed-primitive@1.1.1:
     resolution: {integrity: sha512-TbX3mj8n0odCBFVlY8AxkqcHASw3L60jIuF8jFP78az3C2YhmGvqbHBpAjTRH2/xqYunrJ9g1jSyjCjpoWzIAA==}
     engines: {node: '>= 0.4'}
@@ -2954,6 +3016,9 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  zod@3.24.1:
+    resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
 
 snapshots:
 
@@ -3666,6 +3731,10 @@ snapshots:
 
   '@floating-ui/utils@0.2.9': {}
 
+  '@hookform/resolvers@3.10.0(react-hook-form@7.54.2(react@19.0.0))':
+    dependencies:
+      react-hook-form: 7.54.2(react@19.0.0)
+
   '@humanfs/core@0.19.1': {}
 
   '@humanfs/node@0.16.6':
@@ -3795,16 +3864,6 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  '@kinde-oss/kinde-auth-pkce-js@4.2.2':
-    dependencies:
-      jwt-decode: 4.0.0
-
-  '@kinde-oss/kinde-auth-react@4.0.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
-    dependencies:
-      '@kinde-oss/kinde-auth-pkce-js': 4.2.2
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-
   '@kinde-oss/kinde-typescript-sdk@2.9.1':
     dependencies:
       jose: 5.9.6
@@ -3925,6 +3984,31 @@ snapshots:
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
+
+  '@prisma/client@6.2.1(prisma@6.2.1)':
+    optionalDependencies:
+      prisma: 6.2.1
+
+  '@prisma/debug@6.2.1': {}
+
+  '@prisma/engines-version@6.2.0-14.4123509d24aa4dede1e864b46351bf2790323b69': {}
+
+  '@prisma/engines@6.2.1':
+    dependencies:
+      '@prisma/debug': 6.2.1
+      '@prisma/engines-version': 6.2.0-14.4123509d24aa4dede1e864b46351bf2790323b69
+      '@prisma/fetch-engine': 6.2.1
+      '@prisma/get-platform': 6.2.1
+
+  '@prisma/fetch-engine@6.2.1':
+    dependencies:
+      '@prisma/debug': 6.2.1
+      '@prisma/engines-version': 6.2.0-14.4123509d24aa4dede1e864b46351bf2790323b69
+      '@prisma/get-platform': 6.2.1
+
+  '@prisma/get-platform@6.2.1':
+    dependencies:
+      '@prisma/debug': 6.2.1
 
   '@radix-ui/number@1.1.0': {}
 
@@ -4058,6 +4142,15 @@ snapshots:
       react: 19.0.0
     optionalDependencies:
       '@types/react': 19.0.2
+
+  '@radix-ui/react-label@2.1.1(@types/react-dom@19.0.2(@types/react@19.0.2))(@types/react@19.0.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@radix-ui/react-primitive': 2.0.1(@types/react-dom@19.0.2(@types/react@19.0.2))(@types/react@19.0.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+    optionalDependencies:
+      '@types/react': 19.0.2
+      '@types/react-dom': 19.0.2(@types/react@19.0.2)
 
   '@radix-ui/react-menu@2.1.4(@types/react-dom@19.0.2(@types/react@19.0.2))(@types/react@19.0.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
@@ -5379,8 +5472,6 @@ snapshots:
       object.assign: 4.1.7
       object.values: 1.2.1
 
-  jwt-decode@4.0.0: {}
-
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
@@ -5628,6 +5719,12 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
+  prisma@6.2.1:
+    dependencies:
+      '@prisma/engines': 6.2.1
+    optionalDependencies:
+      fsevents: 2.3.3
+
   prop-types@15.8.1:
     dependencies:
       loose-envify: 1.4.0
@@ -5642,6 +5739,10 @@ snapshots:
     dependencies:
       react: 19.0.0
       scheduler: 0.25.0
+
+  react-hook-form@7.54.2(react@19.0.0):
+    dependencies:
+      react: 19.0.0
 
   react-is@16.13.1: {}
 
@@ -6131,6 +6232,8 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
+  uuid@11.0.5: {}
+
   which-boxed-primitive@1.1.1:
     dependencies:
       is-bigint: 1.1.0
@@ -6194,3 +6297,5 @@ snapshots:
   yaml@2.7.0: {}
 
   yocto-queue@0.1.0: {}
+
+  zod@3.24.1: {}
