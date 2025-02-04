@@ -1,9 +1,10 @@
 import slugify from 'slugify'
 import { PrismaClient } from '@prisma/client'
+import { withAccelerate } from '@prisma/extension-accelerate'
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import { NextRequest, NextResponse } from 'next/server'
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient().$extends(withAccelerate())
 
 export async function GET(
   request: NextRequest
@@ -31,10 +32,10 @@ export async function GET(
           kindeId: user.id,
           username: user.username || '',
           status: 'pending',
-          governmentId: '',
+          governmentId: null,
           phoneNumber: null,
-          jobTitle: '',
-          notes: ''
+          jobTitle: null,
+          notes: null
         }
       })
     }

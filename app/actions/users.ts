@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client'
+import { withAccelerate } from '@prisma/extension-accelerate'
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient().$extends(withAccelerate())
 
 export async function getUser(id: string) {
   const user = await prisma.user.findUnique({
