@@ -1,6 +1,6 @@
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { redirect } from 'next/navigation'
-import { getUserOrganizationHandle } from '@/app/actions'
+import { getSessionUserOrganizationHandle } from '@/app/actions/auth'
 import styles from './page.module.scss'
 
 export default async function Dashboard({
@@ -12,7 +12,7 @@ export default async function Dashboard({
 }) {
   const { organization: organization_slug } = await params
 
-  const organization_handle = await getUserOrganizationHandle()
+  const organization_handle = await getSessionUserOrganizationHandle()
 
   if (organization_slug !== organization_handle) {
     redirect(`/${organization_handle}/dashboard`)

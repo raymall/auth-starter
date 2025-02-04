@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'auth-starter',
-  description: 'Template',
+  description: '',
 }
 
 export default async function RootLayout({

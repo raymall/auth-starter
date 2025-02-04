@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { LogIn, UserRoundPlus } from 'lucide-react'
-import { getOrganizationByHandle } from '@/app/actions'
+import { getOrganizationByHandle } from '@/app/actions/auth'
 import styles from './page.module.scss'
 
 export default async function OrganizationLogin({
@@ -17,10 +17,8 @@ export default async function OrganizationLogin({
     organization: string
   }>
 }) {
-  const { organization } = await params
-  const organization_item = await getOrganizationByHandle({
-    organization_handle: organization
-  })
+  const { organization: organization_handle } = await params
+  const organization_item = await getOrganizationByHandle(organization_handle)
 
   return (
     <div className={styles.page}>
@@ -40,7 +38,7 @@ export default async function OrganizationLogin({
           </CardHeader>
           {organization_item ? (
             <CardFooter className={styles.CardFooter}>
-              <LoginLink className={styles.CardFooter_link} orgCode={organization_item.code} postLoginRedirectURL={`/${organization}/dashboard`}>
+              <LoginLink className={styles.CardFooter_link} orgCode={organization_item.code} postLoginRedirectURL={`/${organization_handle}/dashboard`}>
                 <Button className={styles.CardFooter_button}>
                   <LogIn /> Login
                 </Button>

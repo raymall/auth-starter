@@ -19,22 +19,22 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 import {
-  getIsUserAuthenticated,
-  getUser,
-  getUserPermissions,
-  getUserOrganizationName,
-  getUserOrganizations,
-} from '@/app/actions'
+  getIsSessionUserAuthenticated,
+  getSessionUser,
+  getSessionUserPermissions,
+  getSessionUserOrganizationName,
+  getSessionUserOrganizations,
+} from '@/app/actions/auth'
 import { LogoutButton } from '@/app/components/LogoutButton'
 import { SidebarMenu } from './SidebarMenuItem.client'
 import styles from './styles.module.scss'
 
 export const Sidebar = async () => {
-  const is_user_authenticated = await getIsUserAuthenticated()
-  const user = await getUser()
-  const user_permissions = (await getUserPermissions()) || []
-  const organization_name = await getUserOrganizationName() || ''
-  const organizations = await getUserOrganizations() || []
+  const is_user_authenticated = await getIsSessionUserAuthenticated()
+  const user = await getSessionUser()
+  const user_permissions = (await getSessionUserPermissions()) || []
+  const organization_name = await getSessionUserOrganizationName() || ''
+  const organizations = await getSessionUserOrganizations() || []
   const organization_handle = slugify(organization_name || '', { lower: true })
 
   return (
