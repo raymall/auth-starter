@@ -8,8 +8,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+} from '@/app/components/ui/card'
+import { Button } from '@/app/components/ui/button'
 import { LogIn, UserRoundPlus, LogOut } from 'lucide-react'
 import styles from './page.module.scss'
 

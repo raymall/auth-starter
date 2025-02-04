@@ -8,7 +8,7 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarFooter,
-} from '@/components/ui/sidebar'
+} from '@/app/components/ui/sidebar'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,8 +16,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Button } from '@/components/ui/button'
+} from '@/app/components/ui/dropdown-menu'
+import { Button } from '@/app/components/ui/button'
 import {
   getIsSessionUserAuthenticated,
   getSessionUser,

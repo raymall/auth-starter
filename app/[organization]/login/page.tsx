@@ -4,8 +4,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+} from '@/app/components/ui/card'
+import { Button } from '@/app/components/ui/button'
 import { LogIn, UserRoundPlus } from 'lucide-react'
 import { getOrganizationByHandle } from '@/app/actions/auth'
 import styles from './page.module.scss'

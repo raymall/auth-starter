@@ -1,5 +1,5 @@
-import { SidebarTrigger } from '@/components/ui/sidebar'
-import { Separator } from "@/components/ui/separator"
+import { SidebarTrigger } from '@/app/components/ui/sidebar'
+import { Separator } from "@/app/components/ui/separator"
 import { getSessionUserOrganizationHandle } from '@/app/actions/auth'
 import { ListUsers } from '@/app/components/ListUsers'
 import styles from './page.module.scss'

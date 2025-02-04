@@ -21,9 +21,9 @@ import {
   MoreHorizontal,
   Trash2
 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Input } from '@/components/ui/input'
+import { Button } from '@/app/components/ui/button'
+import { Badge } from '@/app/components/ui/badge'
+import { Input } from '@/app/components/ui/input'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -32,7 +32,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@/app/components/ui/dropdown-menu'
 import {
   Table,
   TableBody,
@@ -40,7 +40,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table'
+} from '@/app/components/ui/table'
 import Link from 'next/link'
 import { User } from '@/app/schemas'
 

@@ -1,5 +1,5 @@
 import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/components'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/app/components/ui/button'
 import { LogOut } from 'lucide-react'
 import { getIsSessionUserAuthenticated } from '@/app/actions/auth'
 

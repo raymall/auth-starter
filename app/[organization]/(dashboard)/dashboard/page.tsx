@@ -1,4 +1,4 @@
-import { SidebarTrigger } from '@/components/ui/sidebar'
+import { SidebarTrigger } from '@/app/components/ui/sidebar'
 import { redirect } from 'next/navigation'
 import { getSessionUserOrganizationHandle } from '@/app/actions/auth'
 import styles from './page.module.scss'

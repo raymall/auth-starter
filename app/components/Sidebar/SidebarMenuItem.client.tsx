@@ -5,7 +5,7 @@ import {
   SidebarMenu as AppSidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem
-} from '@/components/ui/sidebar'
+} from '@/app/components/ui/sidebar'
 import { usePathname } from 'next/navigation'
 
 export const SidebarMenu = ({
