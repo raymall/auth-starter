@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# [auth-starter]
+
+An authentication and organization management starter template built with Next.js, designed to accelerate development of projects requiring user authentication and organization handling.
+
+## Features
+
+- 🔐 Secure authentication with Kinde
+- 👥 Organization and team management
+- 🎨 Modern UI components with shadcn/ui
+- 🔍 Type-safe database operations with Prisma
+- ✅ Runtime schema validation with Zod
+- 🎯 Responsive design with Tailwind CSS
+
+## Tech Stack
+
+- **Framework**: Next.js
+- **Authentication**: Kinde
+- **Database**: PostgreSQL
+- **ORM**: Prisma
+- **UI Components**: shadcn/ui
+- **Styling**: Tailwind CSS
+- **Schema Validation**: Zod
+- **Language**: TypeScript
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Node.js 18+ 
+- PostgreSQL
+- npm or yarn or pnpm
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/auth-starter.git
+```
+```bash
+cd auth-starter
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+pnpm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up your environment variables:
+```bash
+cp .env.example .env
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Configure your environment variables in `.env`:
+```
+KINDE_CLIENT_ID=
+KINDE_CLIENT_SECRET=
+KINDE_ISSUER_URL=
+KINDE_SITE_URL=http://localhost:3000
+KINDE_POST_LOGOUT_REDIRECT_URL=http://localhost:3000
+KINDE_POST_LOGIN_REDIRECT_URL=http://localhost:3000/api/auth/success
+KINDE_DOMAIN=
+KINDE_MANAGEMENT_API=
+KINDE_MANAGEMENT_CLIENT_ID=
+KINDE_MANAGEMENT_CLIENT_SECRET=
+KINDE_MANAGEMENT_ACCESS_TOKEN=
+DATABASE_URL=
+DATABASE_URL_NON_POOLING=
+```
 
-## Learn More
+5. Set up the database:
+```bash
+npx prisma generate
+```
+```bash
+npx prisma db push
+```
 
-To learn more about Next.js, take a look at the following resources:
+6. Run the development server:
+```bash
+pnpm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+7. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Available Scripts
 
-## Deploy on Vercel
+- `pnpm run dev` - Start development server
+- `pnpm run build` - Build production bundle
+- `pnpm run lint` - Run ESLint
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Review `package.json` for all available scripts.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/license/mit) file for details.
+
+## Acknowledgments
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Kinde Authentication](https://kinde.com/docs)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [shadcn/ui Components](https://ui.shadcn.com)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [Zod Documentation](https://zod.dev)
