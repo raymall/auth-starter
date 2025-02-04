@@ -1,11 +1,14 @@
 import { redirect } from 'next/navigation'
+import { User, Users } from '@/app/schemas'
 import {
-  getIsUserAuthenticated,
-  getUserOrganizationCode,
-  getUserId,
+  getUser as getKindeUser,
+  getIsSessionUserAuthenticated,
+  getSessionUserOrganizationCode,
+  getSessionUserId,
   getOrganizationUserPermissions,
-  getOrganizationUsersWithProperties,
-} from '@/app/actions'
+  getOrganizationUsers
+} from '@/app/actions/auth'
+import { getUser } from '@/app/actions/users'
 import { UsersTable } from '@/app/components/ListUsers/UsersTable.client'
 
 export const ListUsers = async ({
@@ -16,9 +19,9 @@ export const ListUsers = async ({
     organization_slug: string
   }
 }) => {
-  const is_user_authenticated = await getIsUserAuthenticated()
-  const user_id = await getUserId()
-  const organization_code = await getUserOrganizationCode()
+  const is_user_authenticated = await getIsSessionUserAuthenticated()
+  const user_id = await getSessionUserId()
+  const organization_code = await getSessionUserOrganizationCode()
   const { organization_handle, organization_slug } = data
 
   if (organization_slug !== organization_handle) {
@@ -38,10 +41,35 @@ export const ListUsers = async ({
     user_id
   }).then((permissions) => permissions?.map((permission) => permission.key).filter((key) => key !== undefined))
 
-  const organization_users_with_properties = await getOrganizationUsersWithProperties({
+  const organization_users = await getOrganizationUsers({
     organization_code,
     permissions
-  }) || []
+  })
 
-  return <UsersTable data={organization_users_with_properties} />
+  if (!organization_users) {
+    return null
+  }
+
+  const organization_users_with_properties = await Promise.all(
+    organization_users.map(async (organization_user) => {
+      const kindeUser = await getKindeUser(organization_user.id || '')
+      const dbUser = await getUser(organization_user.id || '')
+      
+      const userData =  {
+        ...organization_user,
+        ...kindeUser,
+        ...dbUser
+      }
+
+      const parsedUserData = User.parse(userData)
+      
+      if (parsedUserData) {
+        return parsedUserData
+      }
+    })
+  )
+
+  const validOrganizationUsers = organization_users_with_properties.filter(user => user !== undefined)
+  
+  return Users.parse(validOrganizationUsers) && <UsersTable data={validOrganizationUsers} />
 }

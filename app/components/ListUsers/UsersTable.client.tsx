@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { type property_value } from '@kinde/management-api-js'
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -14,8 +13,14 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import { ArrowUpDown, ChevronDown, Clipboard, MoreHorizontal } from 'lucide-react'
-
+import {
+  ArrowUpDown,
+  ChevronDown,
+  Clipboard,
+  Eye,
+  MoreHorizontal,
+  Trash2
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
@@ -36,21 +41,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-
-export type User = {
-  id?: string
-  email?: string
-  status?: string
-  full_name?: string
-  last_name?: string
-  first_name?: string
-  picture?: string
-  joined_on?: string
-  roles?: Array<string>
-  government_id?: string | null
-  properties?: property_value[] | null
-  notes?: string
-}
+import Link from 'next/link'
+import { User } from '@/app/schemas'
 
 export const UsersTable = ({
   data
@@ -138,7 +130,7 @@ export const UsersTable = ({
       id: 'actions',
       enableHiding: false,
       cell: ({ row }) => {
-        const { full_name, government_id } = row.original
+        const { full_name, username } = row.original
   
         return (
           <DropdownMenu>
@@ -158,17 +150,19 @@ export const UsersTable = ({
                   <Clipboard /> Copy Full Name
                 </DropdownMenuItem>
               )}
-              {government_id && (
-                <DropdownMenuItem
-                className={'cursor-pointer'}
-                  onClick={() => navigator.clipboard.writeText(government_id)}
-                >
-                  <Clipboard /> Copy Government ID
-                </DropdownMenuItem>
-              )}
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Update User</DropdownMenuItem>
-              <DropdownMenuItem>Delete User</DropdownMenuItem>
+              <DropdownMenuItem className="pt-0 pb-0">
+                <Link href={`users/${username}`} className="w-full p-0">
+                  <Button variant="ghost" className="justify-start w-full p-0">
+                    <Eye /> View User
+                  </Button>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Button variant="ghost" className="justify-start w-full p-0 text-red-600">
+                  <Trash2 />Delete User
+                </Button>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         )
@@ -297,10 +291,6 @@ export const UsersTable = ({
         </Table>
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
-        <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{' '}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
-        </div>
         <div className="space-x-2">
           <Button
             variant="outline"
